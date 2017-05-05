@@ -218,11 +218,8 @@ class wechat_contral{
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		$html = curl_exec($ch);
 		curl_close($ch);
-		$html = json_decode($html);
-		$user_info=array();
-		$user_info = get_object_vars($html);
-		//print_r($user_info);
-		return $user_info;
+		$html = json_decode($html,TRUE);
+		return $html;
 	}
 	function request_post($url = '', $param = '')
     {
